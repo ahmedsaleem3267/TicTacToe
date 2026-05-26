@@ -55,7 +55,20 @@ while game_is_running:
         if board.is_board_filled(counter):
             clear_screen()
             print("\nDraw")
-            break
+            # ask if want to play again
+            ans = input("Do you want to play again? (y/n)")
+            if ans.lower() == "y":
+
+                # resets the board
+                board.reset_grid()
+
+                clear_screen()
+
+                # reset counter
+                counter = 1
+                continue
+            else:
+                break
 
         # Changing turns
         if current_player == "X":
