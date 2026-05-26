@@ -1,3 +1,5 @@
+import board, os
+
 def is_it_valid(current_input, current_grid):
 
     if not current_input.isdigit():
@@ -25,6 +27,23 @@ def check_win(symbol, grid):
                 grid[comb[1]] == symbol  and
                 grid[comb[2]] == symbol):
             return True
+
+def restart_game():
+    # ask if want to play again
+    ans = input("Do you want to play again? (y/n)")
+    if ans.lower() == "y":
+
+        # resets the board
+        board.reset_grid()
+
+        clear_screen()
+        return True
+    else:
+        return False
+
+def clear_screen():
+    # Use 'cls' for Windows (os.name is 'nt') and 'clear' for macOS/Linux
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 
