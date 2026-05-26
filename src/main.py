@@ -3,8 +3,9 @@ import game_logic
 
 counter = 1
 
-# random player start --> yet to add
-current_player = "X"
+# Turn Initialization
+start_player = "X"
+current_player = start_player
 
 game_is_running = True
 
@@ -31,6 +32,12 @@ while game_is_running:
 
             if game_logic.restart_game():
                 counter = 1
+                if start_player == "X":
+                    current_player = "O"
+                    start_player = "O"
+                else:
+                    current_player = "X"
+                    start_player = "X"
                 continue
             else:   break
 
@@ -42,6 +49,12 @@ while game_is_running:
             print("\nDraw")
             if game_logic.restart_game():
                 counter = 1
+                if start_player == "X":
+                    current_player = "O"
+                    start_player = "O"
+                else:
+                    current_player = "X"
+                    start_player = "X"
                 continue
             else:
                 break
